@@ -1,0 +1,5 @@
+This folder includes examples of basic Linux commands used for managing users, permissions, and files.
+- `chmod` – Change file permissions
+- `chown` – Change file ownership
+- `ls -l` – View file permissions
+- `useradd`, `usermod` – User management
