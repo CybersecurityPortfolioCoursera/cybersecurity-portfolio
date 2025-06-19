@@ -1,1 +1,22 @@
+Entry: Unauthorized Access Attempt on Email Server
+Date: June 14, 2025 Time: 2:37 AM – 10:15 AM IST Severity Level: High Status: Resolved
+Occurrence:
+It was June 14th, I was alerted by our IDS (Intrusion Detection System) about multiple failed login attempts coming from an unfamiliar IP address. At first, it looked like just another false alarm -  but within minutes, it became clear this was a brute-force attack targeting our organization’s email server. 
 
+Timeline of the Incident :
+2:37 AM: IDS flagged suspicious login behavior from an external IP.
+2:42 AM: I got an alert notification — checked logs right away.
+2:50 AM: Confirmed multiple login failures from the same IP range. Classic brute-force pattern.
+3:10 AM: Identified targeted accounts (mostly administrative).
+3:15 AM: Blocked the attacker’s IP range at the firewall level.
+3:25 AM: Initiated a password reset for all potentially compromised accounts.
+4:00 AM: Enabled deeper logging on the email server for traceability.
+8:00 AM: Generated a full incident report and backup logs.
+10:15 AM: Incident was fully contained and documented.
+
+It Contain :
+Blocked the IP address to stop further login attempts.
+Reset credentials for 12 users — most were high-risk roles.
+Turned on rate-limiting for login attempts to slow down future attacks.
+Started monitoring for follow-up or related activity.
+Sent a company-wide reminder about using strong passwords and MFA.
