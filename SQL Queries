@@ -1,1 +1,35 @@
+#Find Failed Login Attempts
 
+sql
+Copy
+Edit
+SELECT username, COUNT(*) AS fail_count
+FROM auth_logs
+WHERE status = 'failed'
+GROUP BY username
+ORDER BY fail_count DESC;
+
+
+
+#Detect Multiple Login Attempts from Same IP
+
+sql
+Copy
+Edit
+SELECT ip_address, COUNT(*) AS attempts
+FROM auth_logs
+WHERE action = 'login'
+GROUP BY ip_address
+HAVING attempts > 10
+ORDER BY attempts DESC;
+
+#Find Suspicious HTTP Status Codes (403, 500, 404)
+
+sql
+Copy
+Edit
+SELECT ip_address, status_code, COUNT(*) AS occurrences
+FROM web_logs
+WHERE status_code IN (403, 404, 500)
+GROUP BY ip_address, status_code
+ORDER BY occurrences DESC;
