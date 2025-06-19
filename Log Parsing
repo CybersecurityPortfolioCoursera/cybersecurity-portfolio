@@ -1,1 +1,38 @@
+#log 
+192.168.1.100 - - [19/Jun/2025:02:14:22 +0530] "GET /index.html HTTP/1.1" 200 1043
+192.168.1.101 - - [19/Jun/2025:02:15:05 +0530] "POST /login.php HTTP/1.1" 401 542
+10.0.0.3 - - [19/Jun/2025:02:16:18 +0530] "GET /admin HTTP/1.1" 403 721
+203.0.113.50 - - [19/Jun/2025:02:16:45 +0530] "GET /dashboard HTTP/1.1" 200 1324
+192.168.1.101 - - [19/Jun/2025:02:17:03 +0530] "POST /login.php HTTP/1.1" 401 542
+10.0.0.3 - - [19/Jun/2025:02:17:18 +0530] "GET /admin HTTP/1.1" 403 721
+192.168.1.101 - - [19/Jun/2025:02:17:59 +0530] "POST /login.php HTTP/1.1" 401 542
+8.8.8.8 - - [19/Jun/2025:02:18:12 +0530] "GET /search HTTP/1.1" 404 350
+203.0.113.50 - - [19/Jun/2025:02:19:07 +0530] "GET /settings HTTP/1.1" 200 990
 
+#Code
+from collections import Counter
+import re
+
+with open("accesslog.txt", "r") as file:
+    logs = file.readlines()
+
+ip_count = Counter()
+status_codes = Counter()
+
+pattern = r'^(\S+).*\s"[^"]+"\s(\d{3})'
+
+for line in logs:
+    match = re.search(pattern, line)
+    if match:
+        ip = match.group(1)
+        status = match.group(2)
+        ip_count[ip] += 1
+        status_codes[status] += 1
+
+print("Top IPs:")
+for ip, count in ip_count.most_common():
+    print(f"{ip} - {count} times")
+
+print("\nStatus Codes:")
+for code, count in status_codes.items():
+    print(f"{code} - {count} occurrences")
