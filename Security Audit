@@ -1,1 +1,16 @@
+Internal Security Audit - Botium Toys
 
+ Audit Scope and Goals
+ Botium Toys is expanding its online market internationally, requiring a security audit to identify gaps, maintain
+ regulatory compliance (PCI-DSS, GDPR), and reduce risks to its critical assets, including customer and
+ payment data.
+ Controls Assessment- Inventory of hardware assets is maintained: Yes
+  Notes: The IT team has an up-to-date asset register.- Vulnerability scans are regularly conducted: No
+  Notes: Monthly vulnerability scanning needs to be initiated.- Access controls are in place: Yes
+  Notes: Role-based access is enforced internally.- Data is encrypted in transit and at rest: Yes
+  Notes: HTTPS and encrypted storage are used.- Incident response plan exists: No
+  Notes: Recommend developing and testing an IR plan.
+ Compliance Checklist- PCI-DSS: Yes
+  Notes: Verified through external audits.- GDPR: No
+  Notes: Botium must review EU data practices and train staff.
+ Recommendations for the IT Manager- Begin a GDPR readiness assessment, appoint a Data Protection Officer.- Establish monthly automated vulnerability scans using open-source tools.- Draft and rehearse a basic incident response plan using the NIST framework
